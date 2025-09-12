@@ -11,4 +11,4 @@ Bu repo SoftGirl markam için hazırladığım kişisel web sitesini içeriyor.
 GitHub Pages üzerinden yayında: [Tıkla ve gör](https://jocular-pasca-4d6470.netlify.app/)
 
 ## 📸 Görseller
-![Ana sayfa ekran görüntüsü]()
+![Ana sayfa ekran görüntüsü](main.png)
