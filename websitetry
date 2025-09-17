@@ -1,1 +1,122 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zeynep Pelin Çolak | SoftGirl</title>
+  <style>
+    :root {
+      --bg: #f8f4ef;
+      --text: #3e2f2f;
+      --accent: #bfa58f;
+      --highlight: #d6c1b1;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+    }
+
+    header {
+      background-color: var(--accent);
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      border-bottom: 3px solid var(--highlight);
+    }
+
+    header img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      margin-top: 1rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: var(--highlight);
+      padding: 1rem;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 0.5rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: var(--accent);
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Zeynep Pelin Çolak</h1>
+    <p>Yazılım Mühendisi Adayı | SoftGirl | Vlog Sever</p>
+    <img src="profil-fotografi.jpg" alt="Profil Fotoğrafı" />
+  </header>
+
+  <nav>
+    <a href="#hakkimda">Hakkımda</a>
+    <a href="#projeler">Projeler</a>
+    <a href="#vlog">Günlük Vlog</a>
+    <a href="#iletisim">İletişim</a>
+  </nav>
+
+  <main>
+    <section id="hakkimda">
+      <h2>Hakkımda</h2>
+      <p>Ben Zeynep Pelin Çolak. Doğu Akdeniz Üniversitesi'nde yazılım mühendisliği öğrencisiyim. Eğitim hayatım boyunca birçok zorluk yaşadım ama hiçbir zaman pes etmedim. Şimdi son dönemdeyim ve hayallerimi gerçekleştirmeye çok yakınım. SoftGirl kimliğimle teknoloji ve estetiği birleştiren projeler üretmeyi seviyorum.</p>
+    </section>
+
+    <section id="projeler">
+      <h2>Projeler</h2>
+      <ul>
+        <li>🧠 AI destekli kişisel asistan</li>
+        <li>💻 Vlog destekli kişisel web sayfası</li>
+        <li>📱 Basit mobil oyun (HTML/CSS/JS)</li>
+      </ul>
+    </section>
+
+    <section id="vlog">
+      <h2>Günlük Vlog</h2>
+      <p>Her günümden kısa kesitler, projelerimden sahneler ve günlük yaşantımı buradan paylaşacağım. 🎥</p>
+    </section>
+
+    <section id="iletisim">
+      <h2>İletişim</h2>
+      <p>Email: <a href="mailto:pelinornek@example.com">pelinornek@example.com</a></p>
+      <p>Instagram: <a href="https://instagram.com/pelinornek">@pelinornek</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Zeynep Pelin Çolak</p>
+  </footer>
+</body>
+</html>
 
