@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Zeynep Pelin Çolak - Software Engineer & Founder of SoftGirl">
+    <title>Zeynep Pelin Çolak | SoftGirl</title>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+           /* background: url('../images/about-bg.jpeg');*/
+            --primary: #cebb13;
+            --dark: #202020;
+            --light: #f8f8f8;
+            --gray: #666666;
+            --white: #ffffff;
+        }
+
+        [data-theme="dark"] {
+            --white: #1a1a1a;
+            --light: #2d2d2d;
+            --dark: #f8f8f8;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            color: var(--dark);
+            background: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            /*transition: background 0.3s, color 0.3s;*/
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ebcd24, #ffec3d);
+            z-index: 9999;
+            width: 0%;
+            transition: width 0.1s;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+
+        [data-theme="dark"] nav {
+            background: rgba(26, 26, 26, 0.98);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo {
+            width: 45px;
+            height: 45px;
+        }
+
+        .brand-name {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        /* Controls */
+        .controls {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .lang-btn,
+        .theme-btn {
+            background: none;
+            border: 2px solid var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--dark);
+            transition: all 0.3s;
+            font-size: 0.85rem;
+        }
+
+        .lang-btn:hover,
+        .theme-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Mobile Menu */
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .mobile-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.349), rgba(0, 0, 0, 0.349)), url('C:/Users/Pc/Desktop/oyun denemesi/myblog/images/home-bg.jpg') center/cover fixed;
+            position: relative;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .hero-content {
+            color: white;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            color: #fff;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 2rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.3s;
+            text-transform: uppercase;
+        }
+
+        .cta-btn:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .section-title strong {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray);
+            margin-bottom: 3rem;
+        }
+
+        /* Work Section */
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .work-card {
+            background: var(--white);
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .work-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .work-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .work-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .work-card hr {
+            border: none;
+            border-top: 2px solid var(--light);
+            margin: 1rem auto;
+            width: 100px;
+        }
+
+        /* Skills */
+        .skills-section {
+            margin-top: 4rem;
+        }
+
+        .skill-item {
+            margin-bottom: 2rem;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.8rem;
+        }
+
+        .skill-name {
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .skill-percent {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: var(--primary);
+            transition: width 1.5s ease;
+            border-radius: 10px;
+        }
+
+        /* Portfolio */
+        .portfolio {
+            background: var(--light);
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.6rem 1.5rem;
+            background: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 1;
+            background: #ddd;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(235, 182, 36, 0.9);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            opacity: 0;
+            transition: opacity 0.4s;
+            color: white;
+            text-align: center;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        /* Blog */
+        .blog-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .blog-card h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* About */
+        .about {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23303030" width="1200" height="800"/></svg>') center/cover;
+            color: white;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .info-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .info-label {
+            font-weight: 700;
+            display: inline-block;
+            width: 120px;
+        }
+
+        /* Social */
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+        }
+
+        .social-card {
+            padding: 4rem 2rem;
+            text-align: center;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .social-card:hover {
+            background: var(--dark) !important;
+        }
+
+        .social-icon {
+            font-size: 3rem;
+            background: white;
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 10px;
+            margin: 0 auto 1rem;
+        }
+
+        .facebook { background: #3b5998; }
+        .twitter { background: #1DA1F2; }
+        .pinterest { background: #E60023; }
+
+        /* Contact */
+        .contact {
+            text-align: center;
+        }
+
+        .contact-form {
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            background: var(--white);
+            color: var(--dark);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: var(--dark);
+            color: white;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            padding: 1rem 3rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+        }
+
+        .submit-btn:hover {
+            background: var(--dark);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s;
+            z-index: 999;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-toggle {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .social-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="scroll-progress" id="progressBar"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo-container">                
+                <a href="#home" class="brand-name">SoftGirl</a>
+            </div>
+
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="#home">HOME</a></li>
+                    <li><a href="#work">MY WORK</a></li>
+                    <li><a href="#portfolio">PORTFOLIO</a></li>
+                    <li><a href="#blog">BLOG</a></li>
+                    <li><a href="#about">ABOUT</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
+                </ul>
+
+                <div class="controls">
+                    <button class="lang-btn" id="langBtn">🇬🇧 EN</button>
+                    <button class="theme-btn" id="themeBtn">🌙</button>
+                </div>
+
+                <div class="mobile-toggle" id="mobileToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1><strong>SoftGirl - Zeynep Pelin ÇOLAK</strong></h1>
+            <h2>Founder & Software Engineer</h2>
+            <p>I'm the founder of <strong>SoftGirl</strong> — a cozy and minimal personal brand where I design for heartful digital experiences. Let's build something beautiful together.</p>
+            <a href="#work" class="cta-btn">Let's Begin</a>
+        </div>
+    </section>
+
+    <!-- Work -->
+    <section id="work">
+        <div class="container">
+            <h2 class="section-title">My <strong>Work</strong></h2>
+            <p class="section-subtitle">Services I offer to bring your ideas to life</p>
+
+            <div class="work-grid">
+                <div class="work-card">
+                    <div class="work-icon">🎮</div>
+                    <h3>Game Design & Development</h3>
+                    <hr>
+                    <p>Creating fun, minimal and user-friendly mobile games with smooth UX at the forefront.</p>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-icon">💻</div>
+                    <h3>Warm Digital Spaces</h3>
+                    <hr>
+                    <p>Minimalist and responsive web designs. Building your brand's online comfort zone.</p>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-icon">🎨</div>
+                    <h3>Frontend Prototyping</h3>
+                    <hr>
+                    <p>Fast prototypes and templates with clean, interpretable and flexible code.</p>
+                </div>
+            </div>
+
+            <!-- Skills -->
+            <div class="skills-section">
+                <h3 class="section-title"><strong>Some</strong> Skills</h3>
+                <p class="section-subtitle">Technologies I've mastered through dedication</p>
+
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Bootstrap</span>
+                            <span class="skill-percent">100%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="100"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">HTML5</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">UI/UX Principles</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">JavaScript/jQuery</span>
+                            <span class="skill-percent">75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="75"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">SEO</span>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="80"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <h2 class="section-title">My <strong>Portfolio</strong></h2>
+            <p class="section-subtitle">A showcase of my recent projects</p>
+
+            <div class="filter-buttons">
+                <button class="filter-btn active">All</button>
+                <button class="filter-btn">HTML</button>
+                <button class="filter-btn">Photoshop</button>
+                <button class="filter-btn">WordPress</button>
+                <button class="filter-btn">Mobile</button>
+            </div>
+
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-overlay">
+                        <h3>UX Design</h3>
+                        <p>User interface design for mobile</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-overlay">
+                        <h3>Web Design</h3>
+                        <p>Responsive website design</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-overlay">
+                        <h3>WordPress Site</h3>
+                        <p>Custom theme development</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-overlay">
+                        <h3>Mobile App</h3>
+                        <p>Cross-platform application</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-overlay">
+                        <h3>Branding</h3>
+                        <p>Brand identity design</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-overlay">
+                        <h3>UI Kit</h3>
+                        <p>Design system creation</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-overlay">
+                        <h3>Landing Page</h3>
+                        <p>High-converting design</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-overlay">
+                        <h3>Game Design</h3>
+                        <p>Mobile game interface</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog -->
+    <section id="blog">
+        <div class="container">
+            <h2 class="section-title"><strong>SoftGirl</strong> Daily</h2>
+            <p class="section-subtitle">Thoughts, ideas, and cozy updates from my journey</p>
+
+            <div class="blog-card">
+                <h4>🌸 My Soft Morning Routine — July 2025</h4>
+                <p>Today I started my day with soft pink matcha and coded a little piece of joy...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div>
+                    <h2 class="section-title">My <strong>Profile</strong></h2>
+                    <div class="info-item">
+                        <span class="info-label">Name:</span> Zeynep Pelin Çolak
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Birthday:</span> February 25, 1997
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Address:</span> Türkiye - Cyprus
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Phone:</span> +90 533 872 12 02
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Email:</span> colakpelin8@gmail.com
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Website:</span> www.softgirl.com
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="section-title">This is <strong>SoftGirl</strong></h2>
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;">Your Digital <strong>Comfort Zone</strong></h3>
+                    <p>Hi, I'm Zeynep Pelin, the creator of SoftGirl. I blend design, empathy, and code to create digital spaces that feel soft, warm, and smart. My work is rooted in making tech feel human.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social -->
+    <section id="social">
+        <div class="social-grid">
+            <a href="#" class="social-card facebook">
+                <div class="social-icon">
+                    <div style="color: #3b5998; font-size: 2.5rem; font-weight: 900;">f</div>
+                </div>
+                <h4>Follow me on</h4>
+                <h3>Facebook</h3>
+            </a>
+
+            <a href="#" class="social-card twitter">
+                <div class="social-icon">
+                    <div style="color: #1DA1F2; font-size: 2.5rem; font-weight: 900;">𝕏</div>
+                </div>
+                <h4>Tweet me on</h4>
+                <h3>Twitter</h3>
+            </a>
+
+            <a href="#" class="social-card pinterest">
+                <div class="social-icon">
+                    <div style="color: #E60023; font-size: 2.5rem; font-weight: 900;">P</div>
+                </div>
+                <h4>Pin me on</h4>
+                <h3>Pinterest</h3>
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Drop <strong>me a line</strong></h2>
+            <hr style="margin: 2rem auto; width: 100px; border-color: var(--primary);">
+
+            <form class="contact-form">
+                <div class="form-row">
+                    <input type="text" class="form-control" placeholder="Your Name" required>
+                    <input type="email" class="form-control" placeholder="Your Email" required>
+                </div>
+                <input type="text" class="form-control" placeholder="Your Subject" required style="margin-bottom: 1rem;">
+                <textarea class="form-control" placeholder="Your Message" required style="margin-bottom: 1rem;"></textarea>
+                <button type="submit" class="submit-btn">SHOOT MESSAGE</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 SoftGirl | Zeynep Pelin Çolak. Tüm haklar saklıdır.</p>
+    </footer>
+
+    <!-- Back to Top -->
+    <div class="back-to-top" id="backToTop">↑</div>
+
+    <script>
+        // Scroll Progress
+        window.addEventListener('scroll', () => {
+            const winScroll = document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+
+            // Back to Top
+            const backToTop = document.getElementById('backToTop');
+            if (winScroll > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // Back to Top Click
+        document.getElementById('backToTop').addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Theme Toggle
+        const themeBtn = document.getElementById('themeBtn');
+        const savedTheme = localStorage.getItem('theme');
+        
+        if (savedTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeBtn.textContent = '☀️';
+        }
+
+        themeBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                document.documentElement.removeAttribute('data-theme');
+                themeBtn.textContent = '🌙';
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                themeBtn.textContent = '☀️';
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // Language Toggle
+        const langBtn = document.getElementById('langBtn');
+        let currentLang = 'en';
+
+        const translations = {
+            en: {
+                hero_title: 'SoftGirl - Zeynep Pelin ÇOLAK',
+                hero_subtitle: 'Founder & Software Engineer',
+                hero_desc: "I'm the founder of SoftGirl — a cozy and minimal personal brand where I design for heartful digital experiences. Let's build something beautiful together.",
+                hero_cta: "Let's Begin",
+                work_title: 'My Work',
+                work_subtitle: 'Services I offer to bring your ideas to life',
+                skills_subtitle: "Technologies I've mastered through dedication"
+            },
+            tr: {
+                hero_title: 'SoftGirl - Zeynep Pelin ÇOLAK',
+                hero_subtitle: 'Kurucu & Yazılım Mühendisi',
+                hero_desc: 'SoftGirl\'un kurucusuyum — içten dijital deneyimler tasarladığım rahat ve minimal bir kişisel marka. Birlikte güzel bir şeyler inşa edelim.',
+                hero_cta: 'Başlayalım',
+                work_title: 'Çalışmalarım',
+                work_subtitle: 'Fikirlerinizi hayata geçirmek için sunduğum hizmetler',
+                skills_subtitle: 'Özveriyle ustalaştığım teknolojiler'
+            }
+        };
+
+        langBtn.addEventListener('click', () => {
+            currentLang = currentLang === 'en' ? 'tr' : 'en';
+            langBtn.textContent = currentLang === 'en' ? '🇬🇧 EN' : '🇹🇷 TR';
+            // You can add more translation updates here
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Active Nav Link
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section[id]');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Skill Bars Animation
+        const skillsSection = document.querySelector('.skills-section');
+        let skillsAnimated = false;
+
+        const animateSkills = () => {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            skillBars.forEach(bar => {
+                const width = bar.getAttribute('data-width');
+                bar.style.width = width + '%';
+            });
+            skillsAnimated = true;
+        };
+
+        window.addEventListener('scroll', () => {
+            if (skillsSection) {
+                const sectionTop = skillsSection.offsetTop;
+                const sectionHeight = skillsSection.clientHeight;
+                const windowHeight = window.innerHeight;
+                const scrollY = window.scrollY;
+
+                if (scrollY > (sectionTop - windowHeight + sectionHeight / 2) && !skillsAnimated) {
+                    animateSkills();
+                }
+            }
+        });
+
+        // Filter Portfolio
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                const filter = button.textContent.toLowerCase();
+                
+                portfolioItems.forEach(item => {
+                    if (filter === 'all' || item.textContent.toLowerCase().includes(filter)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Mobile Menu Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileToggle.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Form Submit
+        document.querySelector('.contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            e.target.reset();
+        });
+
+        // Fade in on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.work-card, .portfolio-item, .blog-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        console.log('%c👋 Hello Developer!', 'font-size: 20px; color: #eb5424; font-weight: bold;');
+        console.log('%cLooking at my code? Nice! Feel free to reach out.', 'font-size: 14px; color: #666;');
+        console.log('%c📧 colakpelin8@gmail.com', 'font-size: 14px; color: #eb5424;');
+    </script>
+</body>
+</html>
